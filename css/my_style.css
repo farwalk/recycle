@@ -1,0 +1,14 @@
+
+
+body {
+    background-image: url("img/turf2.jpg");
+    background-repeat: repeat;
+}
+
+div {
+    height:100vh;
+    border-width:1px;
+    border-style:solid;
+}
+
+
