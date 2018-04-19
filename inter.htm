@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Buffalo Recycle-A-Bowl</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="js/location.js"></script>
+<script src="js/week_of_collection.js"></script>
+<script src="js/percent_recycled.js"></script>
+<script src="js/common_code.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+
+<style>
+    * {
+      
+      font-family: 'Graduate', cursive;
+    }
+    
+button{
+font-size: 22px;
+background-color: #279;
+color: #fff;
+border: 0px;
+border-radius: 3px;
+padding: 20px;
+cursor: pointer;
+margin-bottom: 20px;
+}
+
+
+button:hover{
+background-color: #38a;
+}
+
+.orange_button{
+  background-color: #f27209
+}
+
+.orange_button:hover{
+  background-color: #f27209
+}
+    
+    
+</style>
+
+<script langauge=javascript>
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function gotoPlayoffs()
+{
+  location.href = "playoffs.htm";
+}
+
+</script>
+<style>
+body {
+    background-image: url("img/turf2.jpg");
+    background-repeat: repeat;
+}
+
+.middle_div {
+    height:11000px;
+    border-width:0px;
+    border-style:solid;
+    background-color: #F8F8F8;
+}
+
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;    
+}
+
+</style>
+
+<script language=javascript>
+
+week_in = 3;
+display_week = week_in + 1;
+
+function gotoActivities()
+{
+  location.href = "activities.htm";
+}
+
+</script>
+
+</head>
+<body>
+<center>
+<div class='middle_div' style='width:500px; '>
+<BR>
+Your Team:<BR>
+<script language=javascript>
+my_team = 0;
+my_team = getCookie("my_team");
+//alert(my_team);
+if (my_team == "")
+{
+  my_team = 0;
+}
+my_team_location = team_location[my_team];
+
+
+my_winloss = "(" + team_wins[my_team] + "-" + team_losses[my_team]+ ")";
+for (x=0; x<=25; x++)
+{
+  if (game_team[x][0] == my_team)
+  {
+    hometeam = true; 
+    my_opponent = game_team[x][1];   
+  }
+  if (game_team[x][1] == my_team)
+  {
+    hometeam = false;
+    my_opponent = game_team[x][0];
+  }
+}
+opponent_winloss = "(" + team_wins[my_opponent] + "-" + team_losses[my_opponent] + ")";
+
+//alert(my_team);
+
+document.write("");
+document.write("<img src='img\\"+team_logo[my_team]+"' style='width:100px;'>");
+document.write("<BR>");
+
+document.write(team_location[my_team]);
+document.write("<BR>");
+document.write(team_name[my_team]);
+document.write("<BR>");
+document.write(my_winloss);
+document.write("<BR>");
+document.write("<hr>");
+
+document.write("Neighborhood Stats Week " + display_week + ":<BR>");
+document.write("<BR>");
+garbage_in_pounds = numberWithCommas(curbside_garbage[my_team][week_in]);
+recycling_in_pounds = numberWithCommas(curbside_recycling[my_team][week_in]);
+document.write("<table>");
+document.write("<tr>");
+document.write("<td>");
+document.write("Garbage (in pounds): ");
+document.write("</td>");
+document.write("<td align=right padding=5>");
+document.write(garbage_in_pounds);
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>");
+document.write("Recycling (in pounds): ");
+document.write("</td>");
+document.write("<td align=right padding=5>");
+document.write(recycling_in_pounds);
+document.write("</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>");
+document.write("Recycling Percentage: ");
+document.write("</td>");
+document.write("<td align=right padding=5>");
+document.write(curbside_recycling_percentage[my_team][week_in] + "%");
+document.write("</td>");
+document.write("</tr>");
+
+document.write("</table>");
+//alert(num);
+
+</script>
+<BR>
+<hr>
+Let see if we can beat that this week.<BR>
+Doing some of these activities can help us recycle more<BR>
+<BR>
+<button id="goto_activities" onclick=gotoActivities()>Go To Activities</button><BR>
+<BR>
+<button id="goto_activities" onclick=gotoPlayoffs()>Playoffs</button>
+</div>
+</center>
+
+</body>
+</html>

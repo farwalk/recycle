@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Buffalo Recycle-A-Bowl</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+
+
+
+<style>
+body {
+    background-image: url("img/turf2.jpg");
+    background-repeat: repeat;
+}
+
+button{
+font-size: 22px;
+background-color: #279;
+color: #fff;
+border: 0px;
+border-radius: 3px;
+padding: 20px;
+cursor: pointer;
+margin-bottom: 20px;
+}
+
+
+button:hover{
+background-color: #38a;
+}
+
+.orange_button{
+  background-color: #f27209
+}
+
+.orange_button:hover{
+  background-color: #f27209
+}
+
+
+
+.middle_div {
+    height:1900px;
+    border-width:0px;
+    border-style:solid;
+    background-color: #F8F8F8;
+}
+
+
+* {      
+    font-family: 'Graduate', cursive;
+  }
+  
+  
+#score_div {
+  display: inline-block;
+  font-size:30px;
+}  
+
+#my_team_social_score_div {
+  display: inline-block;
+}
+#my_team_recycle_score_div {
+  display: inline-block;
+}
+#my_team_quiz_score_div {
+  display: inline-block;
+}
+#my_team_total_score_div {
+  display: inline-block;
+}
+  
+</style>
+
+<script src="js/common_code.js"></script>
+
+
+
+
+</script>
+
+<script language=javascript>
+
+my_score = 0;
+
+function atStart()
+{
+
+  //alert(my_team_location);
+}
+
+</script>
+
+
+</head>
+<body onload=atStart() >
+
+<center>
+<div class='middle_div' style='width:500px; background-color:white;'>
+
+<BR>
+<font sytle='font-size:20px;'>
+Buffalo Recycle-A-Bowl<BR>
+Activities<BR>
+</font>
+<BR>
+
+
+Curernt Matchup<BR>
+<BR>
+<script>
+
+my_team = 0;
+my_team = getCookie("my_team");
+//alert(my_team);
+if (my_team == "")
+{
+  my_team = 0;
+}
+my_team_location = team_location[my_team];
+
+
+my_winloss = "(" + team_wins[my_team] + "-" + team_losses[my_team]+ ")";
+for (x=0; x<=25; x++)
+{
+  if (game_team[x][0] == my_team)
+  {
+    hometeam = true; 
+    my_opponent = game_team[x][1];   
+  }
+  if (game_team[x][1] == my_team)
+  {
+    hometeam = false;
+    my_opponent = game_team[x][0];
+  }
+}
+opponent_winloss = "(" + team_wins[my_opponent] + "-" + team_losses[my_opponent] + ")";
+//alert(opponent_winloss);
+//alert(my_team);
+
+//testing
+team_social_score[my_team] = 126;
+team_quiz_score[my_team] = 81;
+team_recycle_score[my_team] = 42; 
+
+team_social_score[my_opponent] = 126;
+team_quiz_score[my_opponent] = 81;
+team_recycle_score[my_opponent] = 42; 
+//end testing
+
+
+
+document.write("<div style=''>");
+document.write("<table>");
+
+document.write("<tr>");
+
+document.write("<td>");
+document.write("<center>");
+document.write("<img src='img\\"+team_logo[my_team]+"' style='width:100px;'>");
+document.write("</center>");
+document.write("</td>");
+
+document.write("<td>");
+document.write("</td>");
+
+document.write("<td>");
+document.write("<center>");
+document.write("<img src='img\\"+team_logo[my_opponent]+"' style='width:100px;'>");
+document.write("</center>");
+document.write("</td>");
+
+
+document.write("</tr>");
+
+
+document.write("<tr>");
+
+document.write("<td>");
+document.write("<center>");
+document.write(my_team_location + "<BR>" + team_name[my_team] + "<BR>" + my_winloss);
+document.write("</center>");
+document.write("</td>");
+
+document.write("<td>");
+document.write("<center>");
+document.write(" V. ");
+document.write("</center>");
+document.write("</td>");
+
+document.write("<td>");
+document.write("<center>");
+document.write(team_location[my_opponent] + "<BR>" + team_name[my_opponent] + "<BR>" + opponent_winloss);
+document.write("</center>");
+document.write("</td>");
+
+
+document.write("</tr>");
+
+document.write("");
+document.write("<tr>");
+document.write("<td><BR></td>");
+document.write("<td></td>");
+document.write("<td></td>");
+document.write("</tr>");
+
+document.write("<tr>");
+document.write("<td>");
+document.write("Social Score: <div id='my_team_social_score_div'>" + team_social_score[my_team] + "</div>");
+document.write("</td>");
+document.write("<td>");
+document.write("");
+document.write("</td>");
+document.write("<td>");
+document.write("Social Score: " + team_social_score[my_opponent]);
+document.write("</td>");
+document.write("</tr>");
+
+document.write("<tr>");
+document.write("<td>");
+document.write("Recycle Score: <div id='my_team_recycle_score_div'>" + team_recycle_score[my_team] + "</div>");
+document.write("</td>");
+document.write("<td>");
+document.write("");
+document.write("</td>");
+document.write("<td>");
+document.write("Recycle Score: " + team_recycle_score[my_opponent]);
+document.write("</td>");
+document.write("</tr>");
+
+document.write("<tr>");
+document.write("<td>");
+document.write("Quiz Score: <div id='my_team_quiz_score_div'>" + team_quiz_score[my_team] + "</div>");
+document.write("</td>");
+document.write("<td>");
+document.write("");
+document.write("</td>");
+document.write("<td>");
+document.write("Quiz Score: " + team_quiz_score[my_opponent]);
+document.write("</td>");
+document.write("</tr>");
+
+document.write("<tr>");
+document.write("<td><BR></td>");
+document.write("<td></td>");
+document.write("<td></td>");
+document.write("</tr>");
+
+my_total_score = team_social_score[my_team] + team_quiz_score[my_team] + team_recycle_score[my_team];
+my_opponent_total_score = team_social_score[my_opponent] + team_quiz_score[my_opponent] + team_recycle_score[my_opponent];
+
+document.write("<tr>");
+document.write("<td>Total Score: <div id='my_team_total_score_div'>"+my_total_score+"</div></td>");
+document.write("<td></td>");
+document.write("<td>Total Score: "+my_opponent_total_score+"</td>");
+document.write("</tr>");
+
+
+
+
+document.write("");
+document.write("</table>");
+document.write("<div>");
+
+function setScore()
+{
+  document.getElementById("score_div").innerHTML = my_score;
+  document.getElementById("my_team_social_score_div").innerHTML = team_social_score[my_team];
+  document.getElementById("my_team_quiz_score_div").innerHTML = team_quiz_score[my_team];
+  document.getElementById("my_team_recycle_score_div").innerHTML = team_recycle_score[my_team];
+  my_total_score = team_social_score[my_team] + team_quiz_score[my_team] + team_recycle_score[my_team];
+  document.getElementById("my_team_total_score_div").innerHTML = my_total_score;
+}
+
+function clickRecycleButton()
+{
+  tvar = "<button id='recycle_button' class='orange_button' onclick=alreadyRecycled()>Thanks for Recycling!<BR>Every bit helps!<BR>You scored 7 points!</button>";
+  document.getElementById("recycle_button_div").innerHTML = tvar;
+  my_score = my_score + 7;
+  team_recycle_score[my_team] = team_recycle_score[my_team] + 7;
+  setScore();
+}
+
+function alreadyRecycled()
+{
+  alert("Your recycling efforts have been recorded.  Thanks!");
+}
+
+function tweetOut()
+{
+  var twtLink = 'https://twitter.com/intent/tweet?hashtags=' +encodeURIComponent("BuffaloRecycles");
+  window.open(twtLink,'_blank');
+  tvar = "<button id='tweet' class='orange_button' onclick=alreadyTweeted()>Thanks for Tweeting Today!<BR>You scored 3 points!</button>";
+  document.getElementById("tweet_div").innerHTML = tvar; 
+  my_score = my_score + 3;
+  team_social_score[my_team] = team_social_score[my_team] + 3;
+  setScore();  
+}
+
+function alreadyTweeted()
+{
+  alert("You have tweeted once today already.  Please tweet again tomorrow!");
+}
+
+function takeQuiz()
+{
+  avar = "quiz.htm";
+  window.open(avar, '_blank');
+  tvar = "<button id='take_quiz' class='orange_button' onclick=alreadyTookQuiz()>Quiz Taken<BR>You scored 3 points!</button>";
+  document.getElementById("take_quiz_div").innerHTML = tvar;
+  my_score = my_score + 3;
+  team_quiz_score[my_team] = team_quiz_score[my_team] + 3;
+  setScore();  
+}
+
+function alreadyTookQuiz()
+{
+  alert("You have already taken this quiz.  Check back next week for a new quiz!");
+}
+
+
+function signUpForEvent()
+{
+  tvar = "<button id='sign_up_for_event' class='orange_button' onclick=alreadySignedUpForEvent()>You have signed<BR> up for this event.<BR>Check your email<BR> for details.<BR>You scored 7 points!</button>";
+  document.getElementById("sign_up_div").innerHTML = tvar;
+  my_score = my_score + 7;
+  team_social_score[my_team] = team_social_score[my_team] + 7;
+  setScore();  
+}
+
+function alreadySignedUpForEvent()
+{
+  alert("You are already signed up for this event.");
+}
+
+
+</script>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<BR>
+You have earned <div id="score_div">0</div> points so far for your neighborhood team this week.<BR>
+<BR>
+Click on an activity below to earn points to help your team to victory!<BR>
+<BR>
+
+<hr>
+<BR>
+Every week, come here and record your<BR> recycling to earn points for your team:<BR>
+<BR>
+<div id="recycle_button_div">
+<button id="recycled_button" onclick=clickRecycleButton()>I Recycled This Week<BR>Score 7 Points</button>
+</div>
+<BR>
+<hr>
+<BR>
+Once a day, please tweet something using<BR>
+<BR> 
+#BuffaloRecycles <BR>
+<BR>
+to encourge your fellow Recyclers to join in the effort:<BR>
+<BR>
+<div id="tweet_div">
+<button id="tweet" onclick=tweetOut()>Tweet #BuffaloRecycles<BR>Score 3 Points</button>
+</div>
+<BR>
+This weeks suggested tweet:<BR>
+Arbor Day is coming soon, plant a tree to help make Buffalo Green! #ArborDay<BR>
+<BR>
+<hr>
+<BR>
+Take a quiz to learn more about recycling<BR> to earn points for your team, new questions every week!<BR>
+<BR>
+<div id="take_quiz_div">
+<button id="take_quiz" onclick=takeQuiz()>Take Quiz<BR>Score 3 Points</button>
+</div>
+<BR>
+<hr>
+<BR>
+<font style='color:red'>BONUS SOCIAL POINTS!</font><BR>
+<BR>
+Sign up for the University Heights Tool Library Bailey Avenue Cleanup event!<BR>  
+Earn 7 points for your team by signing up.<BR>
+<BR>
+<div id="sign_up_div">
+<button id="sign_up_for_event" onclick=signUpForEvent()>Sign Up<BR>Score 7 Points</button>
+</div>
+<BR>
+
+
+</div>
+
+</center>
+
+</body>
+</html>

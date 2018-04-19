@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Buffalo Recycle-A-Bowl</title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="js/location.js"></script>
+<script src="js/location_name.js"></script>
+<script src="js/week_of_collection.js"></script>
+<script src="js/percent_recycled.js"></script>
+<script src="js/common_code.js"></script>
+
+
+<script language=javascript>
+
+$(document).ready(function(){
+
+   // jQuery methods go here...
+
+     
+   
+});
+
+function createAccount()
+{
+  //do account creation here
+  
+  setCookie("my_id",100,30);  //testing id
+  
+  location.href="pick_team.htm";
+}
+
+
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="css/my_style.css">
+<style>
+body {
+    background-image: url("img/turf2.jpg");
+    background-repeat: repeat;
+}
+
+div {
+    height:100vh;
+    border-width:0px;
+    border-style:solid;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+
+<style>
+    * {
+      
+      font-family: 'Graduate', cursive;
+    }
+</style>
+
+
+
+</head>
+<body>
+
+
+<center>
+<div style='width:500px; background-color:white;'>
+<BR>
+<img src='img\buffalo.png' style='width:300px;'><BR>
+<BR>
+
+Buffalo<BR>
+Recycle-A-Bowl<BR>
+<BR>
+
+Create New Account<BR>
+<BR>
+<table>
+<tr>
+<td>User Name:</td> 
+<td><input type=text name=user_name></td>
+</tr>
+<tr>
+<td>Password:</td> 
+<td><input type=password name=user_password></td>
+</tr>
+</table>
+<BR>
+<input type=button value='Create Account' onclick=createAccount()>
+
+
+</div>
+</center>
+
+</body>
+</html>

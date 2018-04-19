@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Buffalo Recycle-A-Bowl</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="js/location.js"></script>
+<script src="js/week_of_collection.js"></script>
+<script src="js/percent_recycled.js"></script>
+<script src="js/common_code.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+
+<style>
+    * {
+      
+      font-family: 'Graduate', cursive;
+    }
+    
+button{
+font-size: 22px;
+background-color: #279;
+color: #fff;
+border: 0px;
+border-radius: 3px;
+padding: 20px;
+cursor: pointer;
+margin-bottom: 20px;
+}
+
+
+button:hover{
+background-color: #38a;
+}
+
+.orange_button{
+  background-color: #f27209
+}
+
+.orange_button:hover{
+  background-color: #f27209
+}
+    
+    
+</style>
+
+<script langauge=javascript>
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+</script>
+<style>
+body {
+    background-image: url("img/turf2.jpg");
+    background-repeat: repeat;
+}
+
+.middle_div {
+    height:11000px;
+    border-width:0px;
+    border-style:solid;
+    background-color: #F8F8F8;
+}
+
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;    
+}
+
+</style>
+
+<script language=javascript>
+
+week_in = 3;
+display_week = week_in + 1;
+
+function gotoActivities()
+{
+  location.href = "activities.htm";
+}
+
+</script>
+
+</head>
+<body>
+<center>
+<BR><BR>
+<img src="img\full_bracket.png"><BR>
+<BR>
+
+
+<button id="goto_activities" onclick=goBack()>Go To Team Page</button>
+
+</center>
+
+<script>
+function goBack()
+{
+  location.href = "inter.htm";
+}
+</script>
+
+</body>
+</html>

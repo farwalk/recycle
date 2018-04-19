@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Buffalo Recycle-A-Bowl</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="js/location.js"></script>
+<script src="js/week_of_collection.js"></script>
+<script src="js/percent_recycled.js"></script>
+<script src="js/common_code.js"></script>
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+
+<style>
+    * {
+      
+      font-family: 'Graduate', cursive;
+    }
+</style>
+
+
+
+<script language="javascript">
+
+
+function setTeam()
+{
+  teamup_location = getRadioVal( document.getElementById('pick_team_form'), 'team_chosen' );
+  teamup = -1;
+  for (x=0; x<location_name.length; x++)
+  {
+    if (teamup_location == location_name[x])
+    {
+      teamup = x;
+    }
+  }
+  
+  
+  setCookie("my_team",teamup,30);
+  setCookie("my_team_location", teamup_location, 30);
+  
+  gotoActivities()
+  //alert(teamup);
+}
+
+function gotoActivities()
+{
+  location.href = "inter.htm";
+}
+
+function getRadioVal(form, name) {
+    var val;
+    // get list of radio buttons with specified name
+    var radios = form.elements[name];
+    
+    // loop through list of radio buttons
+    for (var i=0, len=radios.length; i<len; i++) {
+        if ( radios[i].checked ) { // radio checked?
+            val = radios[i].value; // if so, hold its value in val
+            break; // and break out of for loop
+        }
+    }
+    return val; // return value of checked radio or undefined if none checked
+}
+
+
+function selectTeam(teamup)
+{
+  //alert(teamup);
+  setCookie("my_team",teamup,30);
+  //setCookie("my_team_location", team_name[teamup], 30);
+  
+  gotoActivities();
+}
+
+
+</script>
+
+<style>
+body {
+    background-image: url("img/turf2.jpg");
+    background-repeat: repeat;
+}
+
+.middle_div {
+    height:11000px;
+    border-width:0px;
+    border-style:solid;
+    background-color: #F8F8F8;
+}
+
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;    
+}
+
+</style>
+
+</head>
+<body>
+
+
+<center>
+<div class='middle_div' style='width:500px; '>
+<BR>
+The first thing you need<BR> 
+to do is to pick a neighborhood<BR> 
+team to represent.<BR>
+<BR>
+Click on a team logo to select your team.<BR>
+<BR>
+
+<form name="pick_team_form" id="pick_team_form">
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(0)><BR><center><img src='img\aces.png' style='height:100px;'><BR>Abbott Mckinley Aces</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(1)><BR><center><img src='img\bats.png' style='height:100px;'><BR> Albright Bats</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(2)><BR><center><img src='img\bees.png' style='height:100px;'><BR> Allen Bees</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(3)><BR><center><img src='img\blades.png' style='height:100px;'><BR> Babcock Blades</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(4)><BR><center><img src='img\blizzard.png' style='height:100px;'><BR> Black Rock Blizzard</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(5)><BR><center><img src='img\the_show.png' style='height:100px;'><BR> Broadway Fillmore The Show</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(6)><BR><center><img src='img\builders.png' style='height:100px;'><BR> Bryant Builders</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(7)><BR><center><img src='img\cascade.png' style='height:100px;'><BR> Cazenovia Park Cascade</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(8)><BR><center><img src='img\cephalopods.png' style='height:100px;'><BR> Cold Spring Cephalopods</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(9)><BR><center><img src='img\defenders.png' style='height:100px;'><BR> Columbus Defenders</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(10)><BR><center><img src='img\dragons.png' style='height:100px;'><BR> Delaware Park Dragons</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(11)><BR><center><img src='img\eagles.png' style='height:100px;'><BR> Delaware W. Ferry Eagles</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(12)><BR><center><img src='img\express.png' style='height:100px;'><BR> Emerson Express</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(13)><BR><center><img src='img\farmers.png' style='height:100px;'><BR> Emslie Farmers</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(14)><BR><center><img src='img\fighters.png' style='height:100px;'><BR> First Ward Fighters</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(15)><BR><center><img src='img\flames.png' style='height:100px;'><BR> Forest Flames</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(16)><BR><center><img src='img\foxes.png' style='height:100px;'><BR> Front Park Foxes</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(17)><BR><center><img src='img\hammerheads.png' style='height:100px;'><BR> Genesee Moselle Hammerheads</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(18)><BR><center><img src='img\heroes.png' style='height:100px;'><BR> Grant Ferry Heroes</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(19)><BR><center><img src='img\hunters.png' style='height:100px;'><BR> Grider Hunters</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(20)><BR><center><img src='img\isotopes.png' style='height:100px;'><BR> Hamlin Park Isotopes</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(21)><BR><center><img src='img\knights.png' style='height:100px;'><BR> Johnson Knigths</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(22)><BR><center><img src='img\kodiaks.png' style='height:100px;'><BR> Kaisertown Kodiaks</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(23)><BR><center><img src='img\lightning.png' style='height:100px;'><BR> Kenfield Lightning</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(24)><BR><center><img src='img\lions.png' style='height:100px;'><BR> Kensington Lions</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(25)><BR><center><img src='img\wolves.png' style='height:100px;'><BR> Kingsley Wolves</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(26)><BR><center><img src='img\marauders.png' style='height:100px;'><BR> Lakeview Marauders</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(27)><BR><center><img src='img\mavericks.png' style='height:100px;'><BR> Leroy Mavericks</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(28)><BR><center><img src='img\monsters.png' style='height:100px;'><BR> Lovejoy Monsters</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(29)><BR><center><img src='img\orcs.png' style='height:100px;'><BR> Lasalle Orcs</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(30)><BR><center><img src='img\otters.png' style='height:100px;'><BR> M.L.K. Park Otters</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(31)><BR><center><img src='img\owls.png' style='height:100px;'><BR> Masten Park Owls</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(32)><BR><center><img src='img\pathfinders.png' style='height:100px;'><BR> Medical Park Pathfinders</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(33)><BR><center><img src='img\pines.png' style='height:100px;'><BR> Military Pines</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(34)><BR><center><img src='img\pirates.png' style='height:100px;'><BR> North Delaware Pirates</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(35)><BR><center><img src='img\rangers.png' style='height:100px;'><BR> North Park Rangers</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(36)><BR><center><img src='img\rattlers.png' style='height:100px;'><BR> Park Meadow Rattlers</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(37)><BR><center><img src='img\rexes.png' style='height:100px;'><BR> Parkside Rexes</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(38)><BR><center><img src='img\scorpions.png' style='height:100px;'><BR> Perry Scorpions</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(39)><BR><center><img src='img\sharks.png' style='height:100px;'><BR> Riverside Park Sharks</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(40)><BR><center><img src='img\skyline.png' style='height:100px;'><BR> Schiller Park skyline</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(41)><BR><center><img src='img\sparks.png' style='height:100px;'><BR> Seneca Sparks</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(42)><BR><center><img src='img\spartans.png' style='height:100px;'><BR> South Abbott Spartans</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(43)><BR><center><img src='img\spiders.png' style='height:100px;'><BR> South Ellicott Spiders</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(44)><BR><center><img src='img\squirrels.png' style='height:100px;'><BR> South Park Squirrels</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(45)><BR><center><img src='img\suns.png' style='height:100px;'><BR> Starin Central Suns</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(46)><BR><center><img src='img\breakers.png' style='height:100px;'><BR> State Hospital Breakers</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(47)><BR><center><img src='img\tigers.png' style='height:100px;'><BR> Tifft Tigers</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(48)><BR><center><img src='img\undead.png' style='height:100px;'><BR> Triangle Undead</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(49)><BR><center><img src='img\voyagers.png' style='height:100px;'><BR> University Voyagers</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(50)><BR><center><img src='img\whales.png' style='height:100px;'><BR> Valley Whales</center><BR><BR></div><BR>
+<div id='rcorners2' style='width:300px; border-style:solid; border-width:2px; padding:10px; background-color:white;' onclick=selectTeam(51)><BR><center><img src='img\wings.png' style='height:100px;'><BR> Willert Park Wings</center><BR><BR></div><BR>
+
+
+</form>
+
+Logo made with <a href='Logomakr.com'>Logomakr.com</a><BR>
+
+</div>
+</center>
+
+</body>
+</html>
